@@ -1,0 +1,39 @@
+# I will be making a movie class of movie reviews
+class movie: 
+    def __init__(self, Title, box_office, rating, genre):
+        self.title = Title
+        self.box_office = box_office
+        self.rating = rating
+        self.genre = genre
+    
+    def get_summary(self):
+        title = self.title
+        reviews = []
+        box_office = self.box_office
+        average_rating = sum(self.rating) / len(self.rating)
+        genre = self.genre
+            
+class Review:
+    def __init__(self, rating):
+        self.rating = rating
+
+reviews = [Review(7), Review(9), Review(5)]
+
+total = 0
+for r in reviews:
+    total += r.rating
+    average_rating = total / len(reviews)
+                # Example output for said specified movie 
+
+    movie_title = "Spider-Man: No way Home"
+    movie_box_office = 1900000000.00
+    movie_genre = "Action, Adventure, sci-fi"
+    average_rating = 8.7
+    reviews = ["9/10", "8/10", "9.5/10", "7/10"]
+    print(f"Movie Title: {movie_title}")
+    print(f"Box Office: ${movie_box_office}")
+    print(f"Genre: {movie_genre}")
+    print(f"Average Rating: {average_rating}")
+    print("Reviews:")
+    for review in reviews:
+        print(f"- {review}")
