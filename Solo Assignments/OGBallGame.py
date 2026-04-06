@@ -21,21 +21,10 @@ class ballgame:
         self.dx = random.choice([-5, 5])
         self.dy = random.choice([-5, 5])
 
-    def spawn_random_side(self):
-        """Spawn the ball at a random side of the screen"""
-        side = random.choice(['top', 'bottom', 'left', 'right'])
-        if side == 'top':
-            self.x = random.randint(self.radius, self.width - self.radius)
-            self.y = self.radius
-        elif side == 'bottom':
-            self.x = random.randint(self.radius, self.width - self.radius)
-            self.y = self.height - self.radius
-        elif side == 'left':
-            self.x = self.radius
-            self.y = random.randint(self.radius, self.height - self.radius)
-        else:  # right
-            self.x = self.width - self.radius
-            self.y = random.randint(self.radius, self.height - self.radius)
+    def spawn_random(self):
+        """Spawn the ball at a random position on the screen"""
+        self.x = random.randint(self.radius, self.width - self.radius)
+        self.y = random.randint(self.radius, self.height - self.radius)
         self.dx = random.choice([-5, 5])
         self.dy = random.choice([-5, 5])
 
@@ -93,12 +82,8 @@ while running:
                     print("Ball was clicked!")
                     click_count += 1
                     boing_sound.play()
-                    # Respawn clicked ball at random side
-                    ball.spawn_random_side()
-                    # Spawn a new ball
-                    new_ball = ballgame(WIDTH, HEIGHT)
-                    new_ball.spawn_random_side()
-                    balls.append(new_ball)
+                    # Respawn the ball at random position
+                    ball.spawn_random()
                     break
     
     # Update
@@ -123,6 +108,3 @@ while running:
 
 pygame.quit()
 sys.exit()
-
-
-
